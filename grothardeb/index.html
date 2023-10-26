@@ -1,0 +1,87 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Guia de Bastionado de BIOS/UEFI</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="grothardeb"
+                  title="Guia de Bastionado de BIOS/UEFI"
+                  environment="web"
+                  feedback-link="https://github.com/Grothnack/Hardening">
+    
+      <google-codelab-step label="Fundamentos básicos" duration="0">
+        <p>La BIOS (o UEFI en su versión más moderna), se ejecuta inmediatamente nada más arrancar el ordenador, recordando al dispositivo que sistema tiene instalado para poder arrancarlo.</p>
+<p>Esto sin embargo, es una vulnerabilidad alta si no se configura adecuadamente para evitar que gente no deseada acceda de manera inmediata al sistema. Los parámetros que se suelen encontrar aquí para configurar son:</p>
+<ul>
+<li>Contraseñas de administración y usuario de la BIOS: Si se activan, solicitará una contraseña para poder modificar los propios parametros del susodicho.</li>
+<li>Contraseña de arranque de la computadora Al activarse, nada más arrancar pedirá una contraseña para poder proceder al proceso. Sin embargo, esta opción no es posible en arranques producidos por servidores.</li>
+<li>Permiso para arrancar desde dispositivos USB: Puede modificarse para permitir o evitar los arranques a través de las conexiones USB.</li>
+<li>Orden de arranque: Establece en que dispositivos busca el posible arranque del sistema.</li>
+<li>Secure Boot: Introducido a partir de Windows 8, deniega las ejecuciones de software no firmado en el arranque, y prohíbe las ejecuciones que no sean Windows, aunque algunas distribuciones Linux se han ido adaptando.</li>
+</ul>
+<p>Aunque modifiquemos todos los parámetros, debemos de tener en cuenta un par de datos, que pueden llegar a afectar nuestra seguridad:</p>
+<ul>
+<li>En la mayoría de placas bases, basta con quitar y poner la pila de botón para que se elimine todas las configuraciones establecidas en la BIOS y vuelva a la puesta por defecto en el sistema.</li>
+<li>Algunos fabricantes tienen contraseñas maestras configuradas, haciendo que si obtienen esta contraseña, pueda sortear todas las configuraciones de seguridad impuestas. Incluso es posible que, si te equivocas muchas veces, aparezca un número para recuperar la contraseña.</li>
+</ul>
+<p>En definitiva, aunque no se pueda asegurar por completo el dispositivo, se pueden tomar medidas para mitigar la vulnerabilidad.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Debian" duration="0">
+        <h2 is-upgraded>Acceso a la BIOS</h2>
+<p>Si es una máquina real, se presiona el F2 continuamente para poder acceder. Sin embargo, si es a través de una máquina virtual, usando VMWare Workstation o similares, usar Power On to Firmware.</p>
+<h2 is-upgraded>Modificacion de la contraseña de administrador, usuario y arranque</h2>
+<p>En la pestaña de Security de la BIOS, se puede modificar las tres contraseñas sin ningún problema.</p>
+<p>https://i.imgur.com/lWBKtpq.png</p>
+<p>https://i.imgur.com/p6XFVYU.png</p>
+<p>https://i.imgur.com/e9ioOIy.png</p>
+<h2 is-upgraded>Permisos de dispositivos USB de arranque</h2>
+<p>En esta BIOS impide pasar a remover los permisos de dispositivos de USB de arranque, pero se puede mitigar en el siguiente paso, ordenando la orden de arranque, llegando a colocar los dispositivos USB al final de la lista.</p>
+<h2 is-upgraded>Orden de arranque</h2>
+<p>En la pestaña de Boot, permite modificar el orden en el que se revisan los dispositivos de arranque, permitiendo seleccionar cual va primero en el orden.</p>
+<p>https://i.imgur.com/gYuC63v.png</p>
+<h2 is-upgraded>Secure Boot</h2>
+<p>En este caso, debido a que es en una máquina virtual, se debe activar la opción de Secure Boot en las opciones de configuración dentro de la máquina en cuestión. Cada programa de virtualización tiene su forma de pasar a activar el Secure Boot.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Referencias" duration="0">
+        <ul>
+<li>Guía de Bastionado de la clase de Bastionado de Redes y Sistemas</li>
+<li>https://www.compuhoy.com/debian-admite-el-arranque-seguro/</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
