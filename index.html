@@ -22,7 +22,7 @@
 <body>
   <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
   <google-codelab codelab-gaid=""
-                  id="grothardwind"
+                  id="grothardeb"
                   title="Guia de Bastionado de BIOS/UEFI"
                   environment="web"
                   feedback-link="https://github.com/Grothnack/Hardening">
@@ -47,27 +47,21 @@
 
       </google-codelab-step>
     
-      <google-codelab-step label="Windows" duration="0">
+      <google-codelab-step label="Debian" duration="0">
         <h2 is-upgraded>Acceso a la BIOS</h2>
-<p>Para acceder a la BIOS, una forma sencilla es a través del reinicio de la máquina, a través del menú de recuperación y hacer el reinicio avanzado. Una vez allí, se pasaría a darle a Solucionar Problemas, Opciones Avanzadas, y a la Administración de UEFI. Una vez allí, cargará la BIOS para el usuario.</p>
-<p><img src="https://i.imgur.com/tyWtHsV.jpg"></p>
-<h2 is-upgraded>Modificacion de contraseña de administrador y usuario de BIOS</h2>
-<p>En la pantalla principal de la BIOS, se puede asignar las nuevas contraseñas de tanto el administrador como el del usuario</p>
-<p><img src="https://i.imgur.com/9PcyCXJ.jpg"></p>
-<p>También puede modificarse en el modo avanzado (F7), en la pestaña de Security</p>
-<p><img src="https://i.imgur.com/yPY6z0H.jpg"></p>
-<h2 is-upgraded>Modificacion de contraseña de arranque de BIOS</h2>
-<p>En la pantalla de Security, puede pasar a modificar la contraseña de arranque de la BIOS sin mayores problemas.</p>
-<p><img src="https://i.imgur.com/yPY6z0H.jpg"></p>
-<h2 is-upgraded>Permiso para arrancar desde dispositivos USB</h2>
-<p>En la pestaña de Security, existe una de las opciones que es la de Dispositivos USB; permitiendo modificar si tiene acceso o no.</p>
-<p><img src="https://i.imgur.com/EIC1og3.jpg"></p>
+<p>Si es una máquina real, se presiona el F2 continuamente para poder acceder. Sin embargo, si es a través de una máquina virtual, usando VMWare Workstation o similares, usar Power On to Firmware.</p>
+<h2 is-upgraded>Modificacion de la contraseña de administrador, usuario y arranque</h2>
+<p>En la pestaña de Security de la BIOS, se puede modificar las tres contraseñas sin ningún problema.</p>
+<p><img src="https://i.imgur.com/lWBKtpq.png"></p>
+<p><img src="https://i.imgur.com/p6XFVYU.png"></p>
+<p><img src="https://i.imgur.com/e9ioOIy.png"></p>
+<h2 is-upgraded>Permisos de dispositivos USB de arranque</h2>
+<p>En esta BIOS impide pasar a remover los permisos de dispositivos de USB de arranque, pero se puede mitigar en el siguiente paso, ordenando la orden de arranque, llegando a colocar los dispositivos USB al final de la lista.</p>
 <h2 is-upgraded>Orden de arranque</h2>
-<p>En el Boot, se puede pasar a modificar el orden donde se pasa a llegar a modificar la orden de arranque sin mayores problemas.</p>
-<p><img src="https://i.imgur.com/484NXxl.jpg"></p>
+<p>En la pestaña de Boot, permite modificar el orden en el que se revisan los dispositivos de arranque, permitiendo seleccionar cual va primero en el orden.</p>
+<p><img src="https://i.imgur.com/gYuC63v.png"></p>
 <h2 is-upgraded>Secure Boot</h2>
-<p>En la pestaña de Seguridad, permite activar el Secure Boot sin problema alguno.</p>
-<p><img src="https://i.imgur.com/JSXjRRV.jpg"></p>
+<p>En este caso, debido a que es en una máquina virtual, se debe activar la opción de Secure Boot en las opciones de configuración dentro de la máquina en cuestión. Cada programa de virtualización tiene su forma de pasar a activar el Secure Boot.</p>
 
 
       </google-codelab-step>
@@ -75,7 +69,7 @@
       <google-codelab-step label="Referencias" duration="0">
         <ul>
 <li>Guía de Bastionado de la clase de Bastionado de Redes y Sistemas</li>
-<li>https://www.osradar.com/how-to-reset-password-administrator-on-windows-server-2019/</li>
+<li>https://www.compuhoy.com/debian-admite-el-arranque-seguro/</li>
 </ul>
 
 
