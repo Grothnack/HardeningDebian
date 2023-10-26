@@ -3,12 +3,12 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2023-10-26T23:00:20+02:00",
-  "id": "grothardwind",
+  "updated": "2023-10-26T23:00:48+02:00",
+  "id": "grothardeb",
   "duration": 0,
   "title": "Guia de Bastionado de BIOS/UEFI",
   "summary": "Guia de Bastionado de BIOS/UEFI para la asignatura.",
-  "source": "GuiadeBastionadodeBIOSyUEFI.md",
+  "source": "GuiadeBastionadodeBiosyUEFIDebian.md",
   "theme": "",
   "status": [
     "published"
@@ -21,5 +21,5 @@
     "web"
   ],
   "feedback": "https://github.com/Grothnack/Hardening",
-  "url": "grothardwind"
+  "url": "grothardeb"
 }
